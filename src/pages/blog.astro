@@ -1,4 +1,8 @@
 ---
+import Header from '../components/Header.astro';
+import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+
 const pageTitle = "Here is the blog";
 ---
 
@@ -11,9 +15,7 @@ const pageTitle = "Here is the blog";
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/blog/">Blog</a>
+        <Header />
 		<h1>{pageTitle}</h1>
         <p>Aside, but I love and appreciate the rule of three teaching in this tutorial I am following.</p>
         <p>Welcome to my very professional blog.</p>
@@ -22,5 +24,9 @@ const pageTitle = "Here is the blog";
             <li><a href="/posts/post-2/">Post 2</a></li>
             <li><a href="/posts/post-3/">Post 3</a></li>
         </ul>
+        <Footer />
+        <script>
+            import "../scripts/menu.js";
+        </script>
 	</body>
 </html>

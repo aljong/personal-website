@@ -1,4 +1,8 @@
 ---
+import Header from '../components/Header.astro';
+import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+
 const pageTitle = "About Me";
 
 const identity = {
@@ -13,6 +17,10 @@ const programmingLanguages = ["C", "Python", "Java", "Bash scripting", "ASM (bas
 const happy = true;
 const finished = false;
 const goal = 7;
+
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 
 <html lang="en">
@@ -22,11 +30,20 @@ const goal = 7;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
+        <style define:vars={{skillColor, fontWeight, textCase}}>
+            h1 {
+              color: purple;
+              font-size: 4rem;
+            }
+            .lang {
+                color: var(--skillColor);
+                font-weight: var(--fontWeight);
+                text-transform: var(--textCase);
+            }
+        </style>
 	</head>
 	<body>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/blog/">Blog</a>
+        <Header />
 		<h1>{pageTitle}</h1>
         <p>Welcome to my website. It is a work in progress.</p>
 
@@ -40,7 +57,7 @@ const goal = 7;
         </ul>
         <p>Here are some programming languages I am familiar with:</p>
         <ul>
-            {programmingLanguages.map((lang) => <li>{lang}</li>)}
+            {programmingLanguages.map((lang) => <li class ="lang">{lang}</li>)}
         </ul>
 
         {happy && <p>I am happy to be learning Astro!</p>}
@@ -48,6 +65,10 @@ const goal = 7;
         {finished && <p>I finished this tutorial!</p>}
 
         {goal === 7 ? <p>My goal is to finish in 7 days.</p> : <p>My goal is not 7 days.</p>}
-
+        
+        <Footer />
+        <script>
+            import "../scripts/menu.js";
+        </script>
 	</body>
 </html>
