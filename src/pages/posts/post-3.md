@@ -1,5 +1,6 @@
 ---
-title: 'Test blog post'
+layout: ../../layouts/MarkdownPostLayout.astro
+title: 'Stenography?'
 pubDate: 2024-06-13
 description: 'Third blogpost'
 author: Alex Jong

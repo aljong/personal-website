@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: 'Test blog post'
 pubDate: 2023-01-01
 description: 'First blogpost. I am a time traveler!'
@@ -8,9 +9,6 @@ image:
     alt: 'The Astro logo on a dark background with a pink glow.'
 tags: ["astro", "blogging"]
 ---
-# Test
-
-Published on: 2023-01-01
 
 Welcome to my _new blog_! Here, I will share my learning journey as I build a new website. (This is a template I copied from the Astro website.)
 

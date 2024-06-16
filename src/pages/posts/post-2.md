@@ -1,5 +1,6 @@
 ---
-title: 'Test blog post'
+layout: ../../layouts/MarkdownPostLayout.astro
+title: 'About Obsidian'
 pubDate: 2024-06-13
 description: 'Second blogpost, right date this time'
 author: Alex Jong
