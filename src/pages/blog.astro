@@ -1,11 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogPost from "../components/BlogPost.astro";
-const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));const pageTitle = "Here is the blog";
+const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
+const pageTitle = "Blog";
 ---
 <BaseLayout pageTitle={pageTitle}>
-    <p>Aside, but I love and appreciate the rule of three teaching in this tutorial I am following.</p>
-    <p>Welcome to my very professional blog.</p>
+    <p>Here's what I've been up to recently.</p>
+    <br/>
     <ul>
         {allPosts.map((post: any) => <BlogPost url={post.url} title={post.frontmatter.title} />)}    
     </ul>

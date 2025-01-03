@@ -3,68 +3,30 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "About Me";
 
-const identity = {
-    firstName: "Alex",
-    city: "Raleigh",
-    state: "North Carolina",
-    degrees: ["Computer Science BS", "International Studies BA", "Music minor"],
-};
-
-const programmingLanguages = [
-    "C",
-    "Python",
-    "Java",
-    "Bash scripting",
-    "ASM (basic)",
+const courses = [
+    "Software Engineering (CSC 326)",
+    "Self-Driving Cars: Theory and Practice (CSC 495)",
+    "Intro to Artificial Intelligence (CSC 411)",
+    "Data Structures and Algorithms (CSC 316)",
+    "Software Development Fundamentals (CSC 216)",
+    "Automata, Grammars, and Computability (CSC 333)",
+    "C and Software Tools (CSC 230)",
+    "Python Applications (CSC 295)",
 ];
 
-const happy = true;
-const finished = true;
-const goal = 7;
-
-const skillColor = "navy";
-const fontWeight = "bold";
-const textCase = "uppercase";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-    <style define:vars={{ skillColor, fontWeight, textCase }}>
-        .lang {
-            color: var(--skillColor);
-            font-weight: var(--fontWeight);
-            text-transform: var(--textCase);
-        }
-    </style>
 
-    <p>Welcome to my website. It is a work in progress.</p>
+    <p>Hello there. I'm Alex. I'm currently working on two degrees: a BS in Computer Science and a BA in International Studies.</p>
 
-    <p>Here are a few facts about me:</p>
-    <ul>
-        <li>My name is {identity.firstName}.</li>
-        <li>I live in {identity.city} which is located in {identity.state}.</li>
-        {
-            identity.degrees.length >= 2 && (
-                <li>
-                    I am working towards the following degrees:{" "}
-                    {identity.degrees[0]} and {identity.degrees[1]}
-                </li>
-            )
-        }
-    </ul>
-    <p>Here are some programming languages I am familiar with:</p>
-    <ul>
-        {programmingLanguages.map((lang) => <li class="lang">{lang}</li>)}
+    <br/>
+
+    <h2 class="underline text-xl"> Relevant Coursework</h2>
+
+
+    <ul class="list-none">
+        {courses.map((lang) => <li class="">{lang}</li>)}
     </ul>
 
-    {happy && <p>I am happy to be learning Astro!</p>}
-
-    {finished && <p>I finished this tutorial!</p>}
-
-    {
-        goal === 7 ? (
-            <p>My goal is to finish in 7 days.</p>
-        ) : (
-            <p>My goal is not 7 days.</p>
-        )
-    }
 </BaseLayout>

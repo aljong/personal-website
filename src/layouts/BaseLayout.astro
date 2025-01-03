@@ -3,7 +3,7 @@ import Header from "../components/Header.astro";
 import "../styles/global.css";
 import Footer from "../components/Footer.astro";
 
-const { pageTitle } = Astro.props;
+const { pageTitle, subHeading } = Astro.props;
 ---
 
 <html lang="en">
@@ -15,7 +15,11 @@ const { pageTitle } = Astro.props;
         <style>
             h1 {
                 color: theme('colors.accent.dark');
-                font-size: 4rem;
+                font-size: "text-2xl";
+            }
+            h2 {
+                color: theme('colors.secondaryText');
+                font-size: "text-lg";
             }
         </style>
         <title>{pageTitle}</title>

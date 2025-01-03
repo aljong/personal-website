@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "Credits!";
+const subHeading = "you're in a movie!"
+
+const people = [
+    "tn",
+    "nix",
+    "kiwi",
+];
+---
+<BaseLayout pageTitle={pageTitle} subHeading={subHeading}>
+  <p class="underline">people who were very helpful in making this website</p>
+  <ul>
+    {people.map((lang) => <li class="">{lang}</li>)}
+</ul>
+</BaseLayout>
