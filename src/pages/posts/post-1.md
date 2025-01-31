@@ -1,27 +1,25 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: 'Test blog post'
-pubDate: 2023-01-01
-description: 'First blogpost. I am a time traveler!'
+title: 'Wireless CTF'
+pubDate: 2023-12-11
+description: 'A writeup of one of the challenges from the Wireless CTF at CackalackyCon'
 author: Alex Jong
 image:
     url: 'https://docs.astro.build/assets/rose.webp'
     alt: 'The Astro logo on a dark background with a pink glow.'
-tags: ["astro", "blogging"]
+tags: ["CTF", "wireless"]
 ---
 
-Welcome to my _new blog_! Here, I will share my learning journey as I build a new website. (This is a template I copied from the Astro website.)
+Back in 2024, I tried my hand at a wireless CTF. This is a prettyfied version of my writeup from one of the challenges. 
 
-I had some issues with unescaped quotes in my YAML, which was interesting.
-
-## What I've accomplished
-
-1. **Installing Astro**: First, I created a new Astro project and set up my online accounts.
-
-2. **Making Pages**: I then learned how to make pages by creating new `.astro` files and placing them in the `src/pages/` folder.
-
-3. **Making Blog Posts**: This is my first blog post! I now have Astro pages and Markdown posts!
-
-## What's next
-
-I will finish the Astro tutorial, and then keep adding more posts. 
+This challenge required obtaining the frequency, [BSSID](https://en.wikipedia.org/wiki/Service_set_(802.11_network)) , and password of the target wireless network.
+### Setup
+There were some interesting configuration issues when I tried to use my laptop WiFi, so I ended up passing through an external wireless card to my Kali VM.
+### Step 1
+```iw list``` produces a list of additional information on nearby wireless networks, which I used to find the frequency of the target wireless network.
+### Step 2
+I used ```airmon-ng``` and ```airodump-ng``` to listen on wireless traffic with my external wireless card. This revealed that the target wireless network uses WPA, as well as the channel and BSSID of the target wireless network. Here, I accidentally copy-pasted some data before pausing airodump, which led to it still running in the background but not displaying data in my terminal. I fixed this issue by unplugging and replugging my external wireless card.
+### Step 3
+Since the target network uses WPA, I next used ```airodump``` to listen for a handshake. Using the channel and BSSID information obtained previously, I created a packet capture, filtering for traffic on that specific network.
+### Step 4
+After obtaining the handshake, I used ```aircrack``` and a large list of passwords provided with the challenge to crack the handshake.
